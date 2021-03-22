@@ -421,17 +421,17 @@ mainLogo.style.height = headerSection.clientHeight - header.clientHeight + 'px';
 let menuTitle = document.querySelector('.menu1__title');
 let menuTitleSpan = document.querySelector('.menu1__title > span');
 
-if (document.body.clientWidth < 1500 && document.body.clientWidth > 768) {
-	menuTitleSpan.style.width = document.body.clientWidth - menuTitle.offsetLeft + 'px';
-} else if (document.body.clientWidth < 768) {
-	menuTitleSpan.style.width = 'auto';
+if (document.body.clientWidth > 1500) {
+	menuTitleSpan.style.width = document.body.clientWidth - menuTitle.getBoundingClientRect().left - 30 + 'px';
+} else if (document.body.clientWidth <= 1500) {
+	menuTitleSpan.style.display = 'none';
 }
 
 let menuWrapperBackground = document.querySelector('.menu1-wrapper-background');
 let menuWrapper = document.querySelector('.menu1-wrapper');
 
-if (document.body.clientWidth - menuWrapper.offsetLeft + 38 < 1035) {
-	menuWrapperBackground.style.width = document.body.clientWidth - menuWrapper.offsetLeft + 38 + 'px';
+if (document.body.clientWidth - menuWrapper.getBoundingClientRect().left + 39 < 1035) {
+	menuWrapperBackground.style.width = document.body.clientWidth - menuWrapper.getBoundingClientRect().left + 39 + 'px';
 } else {
 	menuWrapperBackground.style.width = 1035 + 'px';
 }
@@ -459,14 +459,14 @@ window.onresize = () => {
 
 	// ===== menu ========================================================================================================================================================
 
-	if (document.body.clientWidth < 1500 && document.body.clientWidth > 768) {
-		menuTitleSpan.style.width = document.body.clientWidth - menuTitle.offsetLeft + 'px';
-	} else if (document.body.clientWidth < 768) {
-		menuTitleSpan.style.width = 'auto';
+	if (document.body.clientWidth > 1500) {
+		menuTitleSpan.style.width = document.body.clientWidth - menuTitle.getBoundingClientRect().left - 30 + 'px';
+	} else if (document.body.clientWidth <= 1500) {
+		menuTitleSpan.style.display = 'none';
 	}
 
-	if (document.body.clientWidth - menuWrapper.offsetLeft + 38 < 1035) {
-		menuWrapperBackground.style.width = document.body.clientWidth - menuWrapper.offsetLeft + 38 + 'px';
+	if (document.body.clientWidth - menuWrapper.getBoundingClientRect().left + 39 < 1035) {
+		menuWrapperBackground.style.width = document.body.clientWidth - menuWrapper.getBoundingClientRect().left + 39 + 'px';
 	} else {
 		menuWrapperBackground.style.width = 1035 + 'px';
 	}
